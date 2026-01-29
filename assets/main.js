@@ -1,6 +1,3 @@
-//import './style.css'
-import './style.less';
-
 (function () {
   document
     .querySelectorAll('.platform-carousel')
