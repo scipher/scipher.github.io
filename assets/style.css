@@ -1,0 +1,209 @@
+/* =========================================================
+   Platform Carousel (Fully Scoped)
+========================================================= */
+body{
+    font-family: Matter SQ, Arial Fallback, sans-serif;
+}
+.platform-carousel {
+  --max-width: 1200px;
+  --arrow-size: 48px;
+  --arrow-bg: #111;
+  --arrow-color: #fff;
+
+  position: relative;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.platform-carousel__main-heading {
+    font-size: 52px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 24px;
+    @media (max-width:768px) {
+        font-size: 32px;
+      
+    }
+}
+
+.platform-carousel__track {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  transition: transform 0.4s ease;
+  will-change: transform;
+  touch-action: pan-y;
+}
+
+/* Slide */
+.platform-carousel__slide {
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 60px;               /* space between panels */
+  padding: 48px 108px;      /* optional: adjust padding */
+  box-sizing: border-box;
+  min-height: 336px;       /* ensure panels have equal height */
+}
+
+.platform-carousel__slide-description {
+    font-size: 20px;
+}
+
+/* Image Panel */
+.platform-carousel__slide-media {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center image inside the panel */
+  width: 100%;
+  height: 100%;
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 20px;
+}
+
+.platform-carousel__slide-media img {
+  width: 150px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text Panel */
+.platform-carousel__slide-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical center */
+  width: 100%;
+  height: 100%;
+  background: #f3f3f3;
+  padding: 16px;
+  border-radius: 20px;
+}
+
+.platform-carousel__slide-body h3 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  @media (max-width:768px) {
+    margin: 24px 0 8px;
+  }
+}
+
+.platform-carousel__slide-body p {
+  margin: 0;
+  line-height: 1.5;
+  color: #444;
+}
+
+/* Navigation arrows */
+.platform-carousel__nav {
+  position: absolute;
+  //top: 50%;
+  top: calc(50% + var(--arrow-size));
+  transform: translateY(-50%);
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+  border-radius: 50%;
+  border: none;
+  background: var(--arrow-bg);
+  color: var(--arrow-color);
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  @media (max-width:768px) {
+    top: auto;
+    bottom: 16%;
+  }
+}
+
+.platform-carousel__nav--prev {
+  left: 0px;
+}
+
+.platform-carousel__nav--next {
+  right: 0px;
+}
+
+/* =========================================================
+   Responsive
+========================================================= */
+@media (max-width: 768px) {
+  .platform-carousel__slide {
+    grid-template-columns: 1fr;    
+    //text-align: center;
+    //padding: 44px 56px;
+    padding: 10px;
+    gap: 60px;
+  }
+
+  
+
+  .platform-carousel__slide-media img {
+    width: 200px;
+  }
+
+  .platform-carousel__slide-body {
+        max-width: calc(93% - 88px);
+        justify-content: normal;
+        
+
+  }
+
+  
+}
+
+
+
+
+
+
+
+
+/*******************/
+.platform-carousel__tabs {
+  display: flex;
+  //justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-radius: 100px;
+  
+  @media (max-width: 768px) {
+    border-radius: 0;
+    overflow-x: scroll;
+
+  }
+}
+
+.platform-carousel__tab {
+  flex: 1;
+  padding: 12px 24px;
+  background: #ffffff;
+  border-radius: 60px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  border:0;
+  box-shadow: 0 4px 4px rgba(119, 119, 119, 0.8);
+  padding: 12px 16px;
+  @media (max-width: 768px) {
+    flex: none;
+    margin: 0 auto;
+    min-width: 150px;
+  }
+  
+}
+
+.platform-carousel__tab--active {
+  background: var(--arrow-bg);
+  color: var(--arrow-color);
+  box-shadow: none;
+}
