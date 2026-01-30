@@ -89,13 +89,41 @@
     /* ----------------------------------
        iOS TOUCH FIX (CRITICAL)
     ---------------------------------- */
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let isHorizontalSwipe = false;
+
+    cmp.addEventListener(
+      'touchstart',
+      (e) => {
+        if (e.touches.length !== 1) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        isHorizontalSwipe = false;
+      },
+      { passive: true }
+    );
+
     cmp.addEventListener(
       'touchmove',
       (e) => {
-        if (isDragging) e.preventDefault();
+        if (!isDragging || e.touches.length !== 1) return;
+
+        const dx = Math.abs(e.touches[0].clientX - touchStartX);
+        const dy = Math.abs(e.touches[0].clientY - touchStartY);
+
+        // Lock only if horizontal gesture
+        if (!isHorizontalSwipe) {
+          isHorizontalSwipe = dx > dy;
+        }
+
+        if (isHorizontalSwipe) {
+          e.preventDefault(); // block page scroll ONLY for horizontal swipe
+        }
       },
       { passive: false }
     );
+
 
     /* ----------------------------------
        Pointer Events (Swipe)
