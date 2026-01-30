@@ -9,27 +9,13 @@ body{
   --arrow-size: 48px;
   --arrow-bg: #111;
   --arrow-color: #fff;
-
+  
+  touch-action: pan-y;
   position: relative;
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
   overflow: hidden;
-
-
-/* Prevents iOS Safari from using the "swipe to go back/forward" gesture 
-     over the carousel area */
-  overscroll-behavior-x: none; 
-  
-  /* Critical for Safari: tells it not to try to 'pan' the element itself */
-  touch-action: pan-y pinch-zoom; 
-  
-  /* Extra safety for images/links inside slides being accidentally dragged */
-  img, a {
-    -webkit-user-drag: none;
-  }
-
-
 }
 
 .platform-carousel__main-heading {
@@ -49,11 +35,6 @@ body{
   margin: 0;
   transition: transform 0.4s ease;
   will-change: transform;
-  touch-action: pan-y; /* prevent touch scrolling while swiping */
-  
-  /* Prevents text selection while dragging */
-  user-select: none;
-  -webkit-user-select: none;
 }
 
 /* Slide */
@@ -67,7 +48,6 @@ body{
   padding: 48px 108px;      /* optional: adjust padding */
   box-sizing: border-box;
   min-height: 336px;       /* ensure panels have equal height */
-  flex: 0 0 100%; /* Force slides to be exactly 100% width and not shrink */
 }
 
 .platform-carousel__slide-description {
@@ -91,15 +71,6 @@ body{
   max-width: 100%;
   height: auto;
   display: block;
-
-
-
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  pointer-events: none;
-
 }
 
 /* Text Panel */
