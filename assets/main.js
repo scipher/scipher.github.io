@@ -1,7 +1,5 @@
 (function () {
-  document
-    .querySelectorAll('.platform-carousel')
-    .forEach(initCarousel);
+  document.querySelectorAll('.platform-carousel').forEach(initCarousel);
 
   function initCarousel(cmp) {
     const track = cmp.querySelector('.platform-carousel__track');
@@ -10,7 +8,7 @@
     const nextBtn = cmp.querySelector('.platform-carousel__nav--next');
     const tabsContainer = cmp.querySelector('.platform-carousel__tabs');
 
-    if (!track || slides.length === 0) return;
+    if (!track || !slides.length) return;
 
     let index = 0;
     let startX = 0;
@@ -18,17 +16,18 @@
     let isDragging = false;
 
     /* ----------------------------------
-       Generate Tabs Dynamically
+       Tabs
     ---------------------------------- */
     function createTabs() {
-      tabsContainer.innerHTML = ''; // Clear existing tabs
-      
+      if (!tabsContainer) return;
+      tabsContainer.innerHTML = '';
       slides.forEach((slide, i) => {
-        const title = slide.querySelector('.platform-carousel__slide-title').textContent;
+        const title = slide.querySelector('.platform-carousel__slide-title')?.textContent || `Slide ${i + 1}`;
         const tab = document.createElement('button');
-        tab.className = i === 0 
-          ? 'platform-carousel__tab platform-carousel__tab--active' 
-          : 'platform-carousel__tab';
+        tab.className =
+          i === 0
+            ? 'platform-carousel__tab platform-carousel__tab--active'
+            : 'platform-carousel__tab';
         tab.dataset.slide = i;
         tab.textContent = title;
         tabsContainer.appendChild(tab);
@@ -45,89 +44,63 @@
     };
 
     const updateTabs = () => {
-      const tabs = cmp.querySelectorAll('.platform-carousel__tab');
-      tabs.forEach((tab, i) => {
-        if (i === index) {
-          tab.classList.add('platform-carousel__tab--active');
-        } else {
-          tab.classList.remove('platform-carousel__tab--active');
-        }
-      });
-      
+      if (!tabsContainer) return;
+      const tabs = tabsContainer.querySelectorAll('.platform-carousel__tab');
+      tabs.forEach((tab, i) =>
+        tab.classList.toggle('platform-carousel__tab--active', i === index)
+      );
+
+      // Center active tab
+      const activeTab = tabsContainer.querySelector('.platform-carousel__tab--active');
+      if (activeTab) {
+        const scrollPos =
+          activeTab.offsetLeft -
+          tabsContainer.clientWidth / 2 +
+          activeTab.clientWidth / 2;
+
+        tabsContainer.scrollTo({
+          left: scrollPos,
+          behavior: 'smooth',
+        });
+      }
     };
 
-    // NEW: Button state management
     const updateButtons = () => {
+      if (!prevBtn || !nextBtn) return;
+
       prevBtn.disabled = index === 0;
       nextBtn.disabled = index === slides.length - 1;
-      
-      // Visual feedback
-      prevBtn.style.opacity = index === 0 ? '0.4' : '1';
-      nextBtn.style.opacity = index === slides.length - 1 ? '0.4' : '1';
-      prevBtn.style.cursor = index === 0 ? 'not-allowed' : 'pointer';
-      nextBtn.style.cursor = index === slides.length - 1 ? 'not-allowed' : 'pointer';
+
+      prevBtn.style.opacity = prevBtn.disabled ? '0.4' : '1';
+      nextBtn.style.opacity = nextBtn.disabled ? '0.4' : '1';
+      prevBtn.style.cursor = prevBtn.disabled ? 'not-allowed' : 'pointer';
+      nextBtn.style.cursor = nextBtn.disabled ? 'not-allowed' : 'pointer';
     };
 
     const update = (animate = true) => {
-      track.style.transition = animate ? 'transform 0.35s ease' : 'none';
-      track.style.transform = `translate3d(${-index * slideWidth()}px, 0, 0)`;
+      track.style.transition = animate ? 'transform 0.35s ease-out' : 'none';
+      const moveX = Math.round(-index * slideWidth());
+      track.style.transform = `translate3d(${moveX}px, 0, 0)`;
+
       updateTabs();
-      updateButtons();      
-
-
-
-      
-
-      const container = document.querySelector('.platform-carousel__tabs');
-const activeTab = document.querySelector('.platform-carousel__tab--active');
-
-if (container && activeTab) {
-    const scrollPos = activeTab.offsetLeft - (container.clientWidth / 2) + (activeTab.clientWidth / 2);
-    container.scrollTo({
-        left: scrollPos,
-        behavior: 'smooth'
-    });
-}
-
-
-
-
-
-
+      updateButtons();
     };
 
     /* ----------------------------------
-       Navigation: Buttons + Tabs + Drag
+       iOS TOUCH FIX (CRITICAL)
     ---------------------------------- */
-    // Next button (with disabled check)
-    nextBtn?.addEventListener('click', () => {
-      if (nextBtn.disabled) return;
-      index++;
-      clampIndex();
-      update();
-    });
-
-    // Prev button (with disabled check)
-    prevBtn?.addEventListener('click', () => {
-      if (prevBtn.disabled) return;
-      index--;
-      clampIndex();
-      update();
-    });
-
-    // Tab clicks
-    tabsContainer.addEventListener('click', (e) => {
-      if (e.target.matches('.platform-carousel__tab')) {
-        index = parseInt(e.target.dataset.slide);
-        clampIndex();
-        update();
-      }
-    });
+    cmp.addEventListener(
+      'touchmove',
+      (e) => {
+        if (isDragging) e.preventDefault();
+      },
+      { passive: false }
+    );
 
     /* ----------------------------------
-       Pointer Events (Drag/Swipe)
+       Pointer Events (Swipe)
     ---------------------------------- */
-    track.addEventListener('pointerdown', e => {
+    track.addEventListener('pointerdown', (e) => {
       isDragging = true;
       startX = e.clientX;
       currentX = 0;
@@ -135,23 +108,39 @@ if (container && activeTab) {
       track.setPointerCapture(e.pointerId);
     });
 
-    track.addEventListener('pointermove', e => {
+    track.addEventListener('pointermove', (e) => {
       if (!isDragging) return;
+
       currentX = e.clientX - startX;
-      track.style.transform = `translate3d(${currentX - index * slideWidth()}px, 0, 0)`;
-    });
 
-    const endDrag = () => {
-      if (!isDragging) return;
-      isDragging = false;
-      track.style.transition = 'transform 0.35s ease';
-
-      if (Math.abs(currentX) > slideWidth() / 3) {
-        index += currentX < 0 ? 1 : -1;
+      // Edge resistance (iOS-friendly)
+      if (
+        (index === 0 && currentX > 0) ||
+        (index === slides.length - 1 && currentX < 0)
+      ) {
+        currentX /= 3;
       }
 
-      clampIndex();
+      const moveX = currentX - index * slideWidth();
+      track.style.transform = `translate3d(${Math.round(moveX)}px, 0, 0)`;
+    });
+
+    const endDrag = (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+
+      if (e?.pointerId !== undefined) {
+        track.releasePointerCapture(e.pointerId);
+      }
+
+      const threshold = slideWidth() / 4;
+      if (Math.abs(currentX) > threshold) {
+        if (currentX < 0 && index < slides.length - 1) index++;
+        else if (currentX > 0 && index > 0) index--;
+      }
+
       currentX = 0;
+      clampIndex();
       update();
     };
 
@@ -160,11 +149,34 @@ if (container && activeTab) {
     track.addEventListener('pointerleave', endDrag);
 
     /* ----------------------------------
-       Resize Handler
+       Navigation
     ---------------------------------- */
-    window.addEventListener('resize', () => {
-      update(false);
+    nextBtn?.addEventListener('click', () => {
+      if (index < slides.length - 1) {
+        index++;
+        update();
+      }
     });
+
+    prevBtn?.addEventListener('click', () => {
+      if (index > 0) {
+        index--;
+        update();
+      }
+    });
+
+    tabsContainer?.addEventListener('click', (e) => {
+      if (e.target.matches('.platform-carousel__tab')) {
+        index = parseInt(e.target.dataset.slide, 10);
+        clampIndex();
+        update();
+      }
+    });
+
+    /* ----------------------------------
+       Resize
+    ---------------------------------- */
+    window.addEventListener('resize', () => update(false));
 
     /* ----------------------------------
        Init
