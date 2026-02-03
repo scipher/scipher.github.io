@@ -104,10 +104,6 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-size: 1.5rem;
-
-  @media (max-width:768px) {
-    margin: 24px 0 8px;
-  }
 }
 
 .platform-carousel__slide-body p {
@@ -139,7 +135,10 @@ body {
 
   @media (max-width:768px) {
     top: auto;
-    bottom: 16%;
+    bottom: 23%;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
   }
 }
 
@@ -155,16 +154,23 @@ body {
    Responsive
 ========================================================= */
 @media (max-width: 768px) {
+  .platform-carousel__nav--prev {
+  left: 15px;
+}
+
+.platform-carousel__nav--next {
+  right: 15px;
+}
   .platform-carousel__slide {
     grid-template-columns: 1fr;
     padding: 10px;
-    gap: 60px;
+    gap: 13px;
   }
 
 
 
-  .platform-carousel__slide-media img {
-    width: 200px;
+  .platform-carousel__slide-media {
+    padding: 10px;
   }
 
   .platform-carousel__slide-body {
