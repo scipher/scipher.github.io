@@ -1,0 +1,128 @@
+/* =====================================
+   Hero Component
+===================================== */
+
+body {
+  margin: 0;
+  font-family: Matter SQ, Arial, sans-serif;
+}
+
+/* Block */
+.hero {
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* Container */
+.hero__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 127px;  
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+
+  background: linear-gradient(
+    90deg,
+    #171717 0%,
+    #171717 45%,
+    #600000 100%
+  );
+
+  border-radius: 16px;
+  color: #fff;
+}
+
+/* Content */
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero__title {
+  margin: 0;
+  font-size: 2.6rem;
+  line-height: 1.1;
+}
+
+.hero__description {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+/* Actions */
+.hero__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.hero__button {
+  padding: 19px 38px;
+  border-radius: 999px;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid #fff;
+  color: #fff;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Modifiers */
+.hero__button--primary {
+  background: #fff;
+  color: #000;
+}
+
+.hero__button--secondary {
+  background: transparent;
+}
+
+/* Media */
+.hero__media {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero__media img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* =====================================
+   Mobile Styles
+===================================== */
+
+@media (max-width: 768px) {
+  .hero__container {
+    grid-template-columns: 1fr;
+    padding: 32px 20px;
+    gap: 24px;
+    text-align: center;
+  }
+  .hero{
+    padding: 30px;
+  }
+  .hero__title {
+    font-size: 2rem;
+  }
+  .hero__media {
+    justify-content: center;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__button {
+    min-width: 180px;
+  }
+}
