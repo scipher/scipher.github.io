@@ -17,7 +17,7 @@
       <div class="platform-carousel__track">
         <div class="platform-carousel__slide">
           <div class="platform-carousel__slide-media">
-            <img src="assets/images/ios-device.png" alt="iOS">
+            <img src="assets/images/ios-device.png" alt="iOS" data-large="https://www.pngplay.com/wp-content/uploads/13/iPhone-PNG-Photo-Image.png">
           </div>
           <div class="platform-carousel__slide-body">
             <h3 class="platform-carousel__slide-title">iOS</h3>
@@ -68,8 +68,27 @@
       <!-- ADD THIS NEW TABS SECTION -->
       <div class="platform-carousel__tabs"></div>
       <button class="platform-carousel__nav platform-carousel__nav--next" aria-label="Next slide">›</button>
+
+      <!-- Image Popup -->
+      <div class="platform-carousel__lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="platform-carousel__lightbox-overlay"></div>
+
+        <div class="platform-carousel__lightbox-content">
+          <button class="platform-carousel__lightbox-close" aria-label="Close image">
+            ✕
+          </button>
+          <img src="" alt="Preview" />
+        </div>
+      </div>
+
     </div>
   </div>
+
+
+
+
+
+
   <script type="module" src="/assets/main.js"></script>
 </body>
 
