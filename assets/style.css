@@ -20,14 +20,17 @@ body {
 }
 
 .platform-carousel__main-heading {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  margin-top: 11px;
+
   font-size: 52px;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 24px;
 
   @media (max-width:768px) {
     font-size: 32px;
-
   }
 }
 
@@ -46,9 +49,9 @@ body {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-items: center;
-  gap: 60px;
+  gap: 16px;
   /* space between panels */
-  padding: 48px 108px;
+  padding: 48px 100px;
   /* optional: adjust padding */
   box-sizing: border-box;
   min-height: 336px;
@@ -68,12 +71,13 @@ body {
   width: 100%;
   height: 100%;
   background: #fafafa;
-  padding: 16px;
+  padding: 22px;
   border-radius: 20px;
+  box-sizing: border-box;
 }
 
 .platform-carousel__slide-media img {
-  width: 150px;
+  width: 145px;
   max-width: 100%;
   height: auto;
   display: block;
@@ -84,16 +88,21 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start; 
   /* vertical center */
   width: 100%;
   height: 100%;
   background: #f3f3f3;
-  padding: 16px;
+  padding: 22px;
   border-radius: 20px;
+  box-sizing: border-box;
+  gap: 21px;
 }
 
 .platform-carousel__slide-body h3 {
-  margin: 0 0 8px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-size: 1.5rem;
 
   @media (max-width:768px) {
@@ -103,6 +112,9 @@ body {
 
 .platform-carousel__slide-body p {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
   line-height: 1.5;
   color: #444;
 }
@@ -110,7 +122,7 @@ body {
 /* Navigation arrows */
 .platform-carousel__nav {
   position: absolute;
-  top: calc(50% + var(--arrow-size));
+  top: 50%;
   transform: translateY(-50%);
   width: var(--arrow-size);
   height: var(--arrow-size);
@@ -132,11 +144,11 @@ body {
 }
 
 .platform-carousel__nav--prev {
-  left: 0px;
+  left: 38px;
 }
 
 .platform-carousel__nav--next {
-  right: 0px;
+  right: 38px;
 }
 
 /* =========================================================
@@ -172,7 +184,8 @@ body {
 .platform-carousel__tabs {
   display: flex;
   gap: 8px;
-  margin-top: 24px;
+  margin: 0 100px;
+  margin-top: -19px;
   padding: 20px;
   background-color: #f3f3f3;
   border-radius: 100px;
@@ -180,6 +193,7 @@ body {
   @media (max-width: 768px) {
     border-radius: 0;
     overflow-x: scroll;
+    margin: 0 auto;
 
   }
 }
