@@ -14,6 +14,18 @@ body {
   box-sizing: border-box;
 }
 
+.hero.non-gradient {
+  .hero__container {
+    background: none;
+    color: #000000;
+  }
+
+  .hero__button--secondary {
+    border-color: #000000;
+    color: #000000;
+  }
+}
+
 /* Container */
 .hero__container {
   max-width: 1200px;
@@ -64,7 +76,7 @@ body {
 /* Actions */
 .hero__actions {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   margin: 0;
 }
 
