@@ -36,7 +36,7 @@ body {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-content: center;
-  column-gap: 50px;
+  column-gap: 25px;
 
   background: linear-gradient(90deg,
       #171717 0%,
