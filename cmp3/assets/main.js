@@ -7,7 +7,6 @@
     const prevBtn = cmp.querySelector('.platform-carousel__nav--prev');
     const nextBtn = cmp.querySelector('.platform-carousel__nav--next');
     const tabsContainer = cmp.querySelector('.platform-carousel__tabs');
-    let isLightboxOpen = false;
 
 
     if (!track || !slides.length) return;
@@ -35,60 +34,6 @@
         tabsContainer.appendChild(tab);
       });
     }
-
-
-
-    /* ----------------------------------
-   Image Popup (Lightbox)
----------------------------------- */
-    const lightbox = cmp.querySelector('.platform-carousel__lightbox');
-    const lightboxImg = lightbox?.querySelector('img');
-    const lightboxClose = lightbox?.querySelector(
-      '.platform-carousel__lightbox-close'
-    );
-    const lightboxOverlay = lightbox?.querySelector(
-      '.platform-carousel__lightbox-overlay'
-    );
-
-    // Open popup
-    cmp.querySelectorAll('.platform-carousel__slide-media img').forEach((img) => {
-      img.style.cursor = 'zoom-in';
-
-      img.addEventListener('click', () => {
-        if (!lightbox || !lightboxImg) return;
-
-        isLightboxOpen = true;
-        lightboxImg.src = img.dataset.large || img.src;
-        lightbox.classList.add('is-open');
-        lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      });
-
-    });
-
-
-    const closeLightbox = () => {
-      if (!lightbox) return;
-
-      isLightboxOpen = false;
-      lightbox.classList.remove('is-open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-
-      setTimeout(() => {
-        if (lightboxImg) lightboxImg.src = '';
-      }, 250);
-    };
-
-
-
-    lightboxClose?.addEventListener('click', closeLightbox);
-    lightboxOverlay?.addEventListener('click', closeLightbox);
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
-    });
-
 
     /* ----------------------------------
        Helpers
@@ -180,19 +125,12 @@
       { passive: false }
     );
 
-    cmp.querySelectorAll('.platform-carousel__slide-media img').forEach((img) => {
-      img.addEventListener('pointerdown', (e) => {
-        e.stopPropagation();     // 🔑 stops carousel capture
-      });
-    });
-
     /* ----------------------------------
        Pointer Events (Swipe)
     ---------------------------------- */
     let hasMoved = false;
 
     track.addEventListener('pointerdown', (e) => {
-      if (isLightboxOpen) return;
       isDragging = true;
       hasMoved = false;
       startX = e.clientX;

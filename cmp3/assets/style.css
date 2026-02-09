@@ -85,6 +85,13 @@ body {
   max-height: 100%;
 }
 
+.platform-carousel__slide-media img {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
 /* Text Panel */
 .platform-carousel__slide-body {
   display: flex;
@@ -230,92 +237,4 @@ body {
   background: var(--arrow-bg);
   color: var(--arrow-color);
   box-shadow: none;
-}
-
-
-/* =====================================
-   Image Lightbox
-===================================== */
-.platform-carousel__lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-
-  visibility: hidden;
-  pointer-events: none;
-  transition: visibility 0.25s ease;
-}
-
-/* OPEN STATE */
-.platform-carousel__lightbox.is-open {
-  visibility: visible;
-  pointer-events: auto;
-}
-
-/* Overlay (fades separately) */
-.platform-carousel__lightbox-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.platform-carousel__lightbox.is-open
-.platform-carousel__lightbox-overlay {
-  opacity: 1;
-}
-
-/* Content wrapper (top-center pop animation) */
-.platform-carousel__lightbox-content {
-  position: absolute;
-  top: 40px;
-  left: 50%;
-  z-index: 1;
-
-  transform: translateX(-50%) translateY(-10px) scale(0.96);
-  opacity: 0;
-
-  max-width: 90vw;
-  max-height: 90vh;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-
-
-}
-
-.platform-carousel__lightbox.is-open .platform-carousel__lightbox-content{
-  padding: 10px;
-  background: #ffffff;
-  border-radius: 12px;
-}
-
-/* Animate image IN */
-.platform-carousel__lightbox.is-open
-.platform-carousel__lightbox-content {
-  transform: translateX(-50%) translateY(0) scale(1);
-  opacity: 1;
-}
-
-/* Image */
-.platform-carousel__lightbox-content img {
-  max-width: 90vw;
-  max-height: 90vh;
-  display: block;
-  border-radius: 12px;
-}
-
-/* Close button */
-.platform-carousel__lightbox-close {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #111;
-  color: #fff;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
 }
