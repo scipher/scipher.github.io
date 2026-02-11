@@ -10,13 +10,16 @@ body {
   --arrow-size: 48px;
   --arrow-bg: #111;
   --arrow-color: #fff;
+  --mobile-image-height: 330px;
 
   touch-action: pan-y;
   position: relative;
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border: 1px solid red;
 }
 
 .platform-carousel__main-heading {
@@ -32,6 +35,10 @@ body {
   @media (max-width:768px) {
     font-size: 32px;
   }
+}
+
+.platform-carousel__track-wrapper {
+  position: relative;
 }
 
 .platform-carousel__track {
@@ -143,8 +150,7 @@ body {
   font-size: 20px;
 
   @media (max-width:768px) {
-    top: auto;
-    bottom: 23%;
+    top: calc(50% + (var(--mobile-image-height) / 2));
     width: 30px;
     height: 30px;
     font-size: 14px;
@@ -181,7 +187,7 @@ body {
 
   .platform-carousel__slide-media {
     padding: 10px;
-    height: 330px;
+    height: var(--mobile-image-height);
   }
 
   .platform-carousel__slide-body {
