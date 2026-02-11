@@ -209,6 +209,37 @@
     });
 
     /* ----------------------------------
+       Keyboard navigation (NEW)
+    ---------------------------------- */
+    // Add this block inside your `initCarousel` function
+    cmp.addEventListener('keydown', (e) => {
+      // Only respond if the carousel or its inside element is focused
+      if (!cmp.contains(document.activeElement)) {
+        return;
+      }
+
+      // Use e.key for modern browsers (ArrowLeft, ArrowRight)
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        if (index > 0) {
+          index--;
+          update();
+        }
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        if (index < slides.length - 1) {
+          index++;
+          update();
+        }
+      }
+    });
+
+    // Optional: make the carousel focusable so keyboard can enter it
+    if (!cmp.hasAttribute('tabindex')) {
+      cmp.setAttribute('tabindex', '0');
+    }
+
+    /* ----------------------------------
        Resize
     ---------------------------------- */
     window.addEventListener('resize', () => update(false));

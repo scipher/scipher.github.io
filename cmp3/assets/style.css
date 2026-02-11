@@ -17,9 +17,15 @@ body {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden;
   border: 1px solid red;
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    outline: 2px solid #ff9800;
+    outline-offset: 4px;
+  }
 }
 
 .platform-carousel__main-heading {
@@ -210,6 +216,8 @@ body {
   background-color: #f3f3f3;
   border-radius: 100px;
   overflow-x: scroll;
+  scroll-behavior: smooth;
+   -webkit-overflow-scrolling: touch;
   @media (max-width: 768px) {
     border-radius: 0;    
     margin: 0 auto;
