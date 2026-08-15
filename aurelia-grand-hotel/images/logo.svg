@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 70" width="260" height="70">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4af6a"/>
+      <stop offset="100%" stop-color="#8a6d3b"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(5,8)">
+    <path d="M0 40 L0 10 L6 10 L6 22 L18 22 L18 10 L24 10 L24 40 L18 40 L18 28 L6 28 L6 40 Z" fill="url(#goldGrad)"/>
+    <circle cx="34" cy="16" r="6" fill="url(#goldGrad)"/>
+    <path d="M28 40 C28 30 40 30 40 40 Z" fill="url(#goldGrad)"/>
+  </g>
+  <text x="72" y="32" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#1c2b3a" font-weight="bold">Aurelia</text>
+  <text x="72" y="52" font-family="Georgia, 'Times New Roman', serif" font-size="15" letter-spacing="4" fill="#8a6d3b">GRAND HOTEL</text>
+</svg>

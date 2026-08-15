@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Aurelia Grand Hotel</title>
+<meta name="description" content="Contact Aurelia Grand Hotel for reservations, events, and inquiries. Located on Marine Drive, Mumbai. Front desk open 24/7.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <a href="index.html" class="logo"><img src="images/logo.svg" alt="Aurelia Grand Hotel logo"></a>
+      <nav class="nav-links">
+        <a href="index.html" class="">Home</a>
+        <a href="rooms.html" class="">Rooms &amp; Suites</a>
+        <a href="about.html" class="">About Us</a>
+        <a href="gallery.html" class="">Gallery</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="contact.html#bookingForm" class="nav-cta">Book Now</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="hero small">
+    <div class="container">
+      <div class="breadcrumb">Home / Contact</div>
+      <h1>Contact &amp; Reservations</h1>
+      <p>We're here to help you plan the perfect stay. Reach out anytime.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <span class="eyebrow">Get in Touch</span>
+          <h2 style="margin-bottom:24px;">We'd Love to Hear From You</h2>
+          <div class="contact-info-item">
+            <div class="icon">&#128205;</div>
+            <div>
+              <h4>Address</h4>
+              <p>Marine Drive, Netaji Subhash Chandra Bose Road, Mumbai, Maharashtra 400020, India</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="icon">&#128222;</div>
+            <div>
+              <h4>Phone</h4>
+              <p>+91 22 4567 8900 (Reservations)<br>+91 22 4567 8901 (Front Desk)</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="icon">&#9993;</div>
+            <div>
+              <h4>Email</h4>
+              <p>reservations@aureliagrand.com<br>events@aureliagrand.com</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="icon">&#128337;</div>
+            <div>
+              <h4>Front Desk Hours</h4>
+              <p>Open 24 hours, 7 days a week</p>
+            </div>
+          </div>
+          <div class="map-placeholder">Map: Marine Drive, Mumbai</div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <h3 style="margin-bottom:20px;">Send Us a Message</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+91 00000 00000">
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject">
+                <option>General Inquiry</option>
+                <option>Room Reservation</option>
+                <option>Event Booking</option>
+                <option>Feedback</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Tell us how we can help..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <p class="form-msg" id="formMsg"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Reserve Directly</span>
+        <h2>Book Your Room</h2>
+        <p>Fill in your travel dates below and our reservations team will confirm availability within the hour.</p>
+      </div>
+      <form class="booking-widget" id="bookingFormPage" style="margin-top:0;">
+        <div class="form-group">
+          <label for="checkin2">Check-In</label>
+          <input type="date" id="checkin2" required>
+        </div>
+        <div class="form-group">
+          <label for="checkout2">Check-Out</label>
+          <input type="date" id="checkout2" required>
+        </div>
+        <div class="form-group">
+          <label for="guests2">Guests</label>
+          <select id="guests2">
+            <option>1 Guest</option>
+            <option selected>2 Guests</option>
+            <option>3 Guests</option>
+            <option>4+ Guests</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="roomtype2">Room Type</label>
+          <select id="roomtype2">
+            <option>Deluxe Room</option>
+            <option>Sea View Room</option>
+            <option>Executive Suite</option>
+            <option>Family Suite</option>
+            <option>Royal Suite</option>
+            <option>Presidential Suite</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Check Availability</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo"><img src="images/logo.svg" alt="Aurelia Grand Hotel logo"></div>
+          <p>Aurelia Grand Hotel is a sanctuary of refined luxury in the heart of Mumbai, blending timeless elegance with modern comfort since 2005.</p>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">ig</a>
+            <a href="#" aria-label="Twitter">tw</a>
+            <a href="#" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Rooms &amp; Suites</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Guest Services</h4>
+          <ul>
+            <li><a href="rooms.html">Room Service</a></li>
+            <li><a href="contact.html">Spa &amp; Wellness</a></li>
+            <li><a href="contact.html">Airport Transfers</a></li>
+            <li><a href="contact.html">Event Planning</a></li>
+            <li><a href="contact.html">Concierge Desk</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact Info</h4>
+          <p>Marine Drive, Mumbai, Maharashtra 400020, India</p>
+          <p>+91 22 4567 8900</p>
+          <p>reservations@aureliagrand.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="year">2026</span> Aurelia Grand Hotel. All rights reserved. | Designed with care for our guests.
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home | Aurelia Grand Hotel</title>
+<meta name="description" content="Aurelia Grand Hotel — luxury accommodation on Marine Drive, Mumbai. Elegant rooms, fine dining, spa, and business facilities.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <a href="index.html" class="logo"><img src="images/logo.svg" alt="Aurelia Grand Hotel logo"></a>
+      <nav class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="rooms.html" class="">Rooms &amp; Suites</a>
+        <a href="about.html" class="">About Us</a>
+        <a href="gallery.html" class="">Gallery</a>
+        <a href="contact.html" class="">Contact</a>
+        <a href="contact.html#bookingForm" class="nav-cta">Book Now</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Welcome to Aurelia Grand Hotel</h1>
+      <p>Where timeless luxury meets the vibrant soul of Mumbai. Experience unparalleled comfort, world-class dining, and breathtaking views of the Arabian Sea.</p>
+      <div class="hero-buttons">
+        <a href="contact.html#bookingForm" class="btn btn-primary">Book Your Stay</a>
+        <a href="rooms.html" class="btn btn-outline">Explore Rooms</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <form class="booking-widget" id="bookingForm">
+      <div class="form-group">
+        <label for="checkin">Check-In</label>
+        <input type="date" id="checkin" required>
+      </div>
+      <div class="form-group">
+        <label for="checkout">Check-Out</label>
+        <input type="date" id="checkout" required>
+      </div>
+      <div class="form-group">
+        <label for="guests">Guests</label>
+        <select id="guests">
+          <option>1 Guest</option>
+          <option selected>2 Guests</option>
+          <option>3 Guests</option>
+          <option>4+ Guests</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="roomtype">Room Type</label>
+        <select id="roomtype">
+          <option>Deluxe Room</option>
+          <option>Executive Suite</option>
+          <option>Presidential Suite</option>
+          <option>Sea View Room</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Check Availability</button>
+    </form>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Our Amenities</span>
+        <h2>Everything You Need for a Perfect Stay</h2>
+        <p>From sunrise yoga to midnight room service, every detail at Aurelia Grand is designed around your comfort.</p>
+      </div>
+      <div class="grid grid-4">
+        <div class="amenity">
+          <div class="icon">&#127869;</div>
+          <h3>Infinity Pool</h3>
+          <p>Rooftop pool overlooking the Mumbai skyline, open 24/7 for residents.</p>
+        </div>
+        <div class="amenity">
+          <div class="icon">&#127860;</div>
+          <h3>Fine Dining</h3>
+          <p>Three signature restaurants serving Indian, Pan-Asian, and Mediterranean cuisine.</p>
+        </div>
+        <div class="amenity">
+          <div class="icon">&#128715;</div>
+          <h3>Luxury Spa</h3>
+          <p>Full-service spa and wellness center with Ayurvedic and modern therapies.</p>
+        </div>
+        <div class="amenity">
+          <div class="icon">&#128188;</div>
+          <h3>Business Center</h3>
+          <p>Fully equipped meeting rooms and banquet halls for events up to 500 guests.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="split">
+        <div>
+          <span class="eyebrow">Our Story</span>
+          <h2>Two Decades of Gracious Hospitality</h2>
+          <p>Since 2005, Aurelia Grand Hotel has stood as a landmark of elegance on Mumbai's iconic Marine Drive. We've hosted diplomats, artists, and travelers from over 80 countries, each leaving with a story worth telling.</p>
+          <p>Our philosophy is simple: anticipate every need, honor every tradition, and never compromise on comfort. That commitment has earned us recognition as one of India's top luxury hotels for eight consecutive years.</p>
+          <div class="stats-row">
+            <div class="stat"><h3>20+</h3><p>Years of Service</p></div>
+            <div class="stat"><h3>180</h3><p>Elegant Rooms</p></div>
+            <div class="stat"><h3>4.8/5</h3><p>Guest Rating</p></div>
+            <div class="stat"><h3>80+</h3><p>Countries Served</p></div>
+          </div>
+        </div>
+        <div class="placeholder-img">Aurelia Grand Hotel — Marine Drive, Mumbai</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Signature Stays</span>
+        <h2>Featured Rooms &amp; Suites</h2>
+        <p>A glimpse of the accommodations awaiting you. View our full collection for detailed pricing and amenities.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="card-img">Deluxe Room</div>
+          <div class="card-body">
+            <h3>Deluxe Room</h3>
+            <p>32 sqm of refined comfort with city views, king bed, and marble bathroom.</p>
+            <p class="price-tag">&#8377;8,500 <span>/ night</span></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">Executive Suite</div>
+          <div class="card-body">
+            <h3>Executive Suite</h3>
+            <p>55 sqm suite with separate living area, sea view, and private lounge access.</p>
+            <p class="price-tag">&#8377;16,000 <span>/ night</span></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">Presidential Suite</div>
+          <div class="card-body">
+            <h3>Presidential Suite</h3>
+            <p>120 sqm of ultimate luxury with private terrace, butler service, and jacuzzi.</p>
+            <p class="price-tag">&#8377;42,000 <span>/ night</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Guest Voices</span>
+        <h2>What Our Guests Say</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="testimonial">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">"The most memorable stay of our anniversary trip. The staff remembered our names from day one and the sea view suite was breathtaking."</p>
+          <p class="author">Ananya &amp; Rohit Sharma</p>
+          <p class="role">Mumbai, India</p>
+        </div>
+        <div class="testimonial">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">"Impeccable service from check-in to check-out. The spa treatments were world class and the breakfast spread was unmatched."</p>
+          <p class="author">David Chen</p>
+          <p class="role">Singapore</p>
+        </div>
+        <div class="testimonial">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="quote">"Hosted our company offsite here and everything was flawless—from the banquet hall to the AV setup. Highly recommend for corporate events."</p>
+          <p class="author">Priya Menon</p>
+          <p class="role">Bengaluru, India</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container">
+      <h2>Ready to Experience Aurelia Grand?</h2>
+      <p>Reserve your room today and enjoy complimentary breakfast on stays of 3 nights or more.</p>
+      <a href="contact.html#bookingForm" class="btn btn-primary">Book Your Stay Now</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo"><img src="images/logo.svg" alt="Aurelia Grand Hotel logo"></div>
+          <p>Aurelia Grand Hotel is a sanctuary of refined luxury in the heart of Mumbai, blending timeless elegance with modern comfort since 2005.</p>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">ig</a>
+            <a href="#" aria-label="Twitter">tw</a>
+            <a href="#" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms.html">Rooms &amp; Suites</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Guest Services</h4>
+          <ul>
+            <li><a href="rooms.html">Room Service</a></li>
+            <li><a href="contact.html">Spa &amp; Wellness</a></li>
+            <li><a href="contact.html">Airport Transfers</a></li>
+            <li><a href="contact.html">Event Planning</a></li>
+            <li><a href="contact.html">Concierge Desk</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact Info</h4>
+          <p>Marine Drive, Mumbai, Maharashtra 400020, India</p>
+          <p>+91 22 4567 8900</p>
+          <p>reservations@aureliagrand.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="year">2026</span> Aurelia Grand Hotel. All rights reserved. | Designed with care for our guests.
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
